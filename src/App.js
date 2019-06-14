@@ -78,13 +78,23 @@ export default class App extends React.Component {
     }
   }
   render() {
+    
     return (
       <div className="App">
      
         <Jarvis />
         <div className="text-container"><p>{this.state.finalText}</p> </div>
         <div className="btn-container"><div onClick={this.toggleListen} className="boton"><p>START</p> </div></div>
-        
+        <button onClick={
+          
+          ()=>{
+            let utterance  = new SpeechSynthesisUtterance();
+            utterance.text = 'Hola kevin.';
+            utterance.volume = 1;
+            utterance.rate = 1.7;
+            window.speechSynthesis.speak(utterance);
+          }
+          }>HABLAR</button>
     </div>
     )
   }
